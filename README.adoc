@@ -1,0 +1,3 @@
+= CsharpPractice
+
+Various small C# projects used for reference or practice purposes.

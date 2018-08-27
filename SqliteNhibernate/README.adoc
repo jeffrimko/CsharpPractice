@@ -1,0 +1,3 @@
+= SqliteNhibernate
+
+Example of using Fluent NHibernate as an ORM for SQLite.
