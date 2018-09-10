@@ -57,18 +57,6 @@ namespace SqliteNhibernate
     {
         private const string DBPATH = "database.sqlite";
         private static ISessionFactory _sessionFactory;
-        private static ISessionFactory SessionFactory
-        {
-            get
-            {
-                if (_sessionFactory == null)
-                {
-                    Initialize();
-                }
-                return _sessionFactory;
-            }
-        }
-
         private static void Initialize()
         {
             _sessionFactory = Fluently
@@ -89,7 +77,11 @@ namespace SqliteNhibernate
 
         public static ISession Open()
         {
-            return SessionFactory.OpenSession();
+            if (_sessionFactory == null)
+            {
+                Initialize();
+            }
+            return _sessionFactory.OpenSession();
         }
     }
 
