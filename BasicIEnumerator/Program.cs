@@ -18,31 +18,31 @@ namespace BasicIEnumerator
 
     class NumberEnumerator : IEnumerable, IEnumerator
     {
-        private float[] myNums;
-        private int index;
+        private float[] _myNums;
+        private int _index;
 
         public NumberEnumerator(params float[] nums)
         {
-            myNums = nums;
+            _myNums = nums;
             Reset();
         }
 
         public void Reset()
         {
-            index = -1;
+            _index = -1;
         }
 
         public bool MoveNext()
         {
-            index++;
-            return (index < myNums.Length);
+            _index++;
+            return (_index < _myNums.Length);
         }
 
         public object Current
         {
             get
             {
-                return myNums[index];
+                return _myNums[_index];
             }
         }
 
